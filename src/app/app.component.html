@@ -1,0 +1,19 @@
+<div class="header">
+  <h1>Welcome to {{ title }}!</h1>
+
+  <h1>Welcome, {{userName}}!</h1>
+
+  <form>
+    <input [(ngModel)]="userName" type="text" name="user">
+  </form>
+
+</div>
+
+<h2>To Do LIst for {{month}}/{{day}}/{{year}}</h2>
+<h2>{{currentFocus}}</h2>
+
+<app-task-list [childTaskList]="masterTaskList" (clickSender)="editTask($event)"></app-task-list>
+
+<app-edit-task [childSelectedTask]="selectedTask" (clickedDone)="finishedEditing()"></app-edit-task>
+
+<app-new-task (sendTask)="addTask($event)"></app-new-task>
